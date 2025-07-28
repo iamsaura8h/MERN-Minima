@@ -16,13 +16,11 @@ const userSchema = mongoose.Schema({
     about : {
         type : String,
         required : true,
-        maxLength : 100,
-        unique : true,
-    },
-    createdAt : {
-        timestamps : true,
-        versionKey : false,
+        maxLength : 100
     }
+}, {
+    timestamps : true,
+    versionKey : false
 });
 
 // 3️⃣ Convert schema to a model
