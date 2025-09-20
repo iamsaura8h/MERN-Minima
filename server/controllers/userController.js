@@ -22,13 +22,26 @@ const createUser = async (req, res) => {
       user: newUser,
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({
-        message: "Server said it couldn't create a new user",
-        error: error.message,
-      });
+    res.status(500).json({
+      message: "Server said it couldn't create a new user",
+      error: error.message,
+    });
   }
 };
 
-module.exports = {createUser};
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.status(200).json({
+      message: "Users fetched successfully!",
+      users,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Server failed to fetch users",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { createUser, getUsers };

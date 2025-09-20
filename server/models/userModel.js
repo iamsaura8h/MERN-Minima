@@ -25,4 +25,7 @@ const userSchema = mongoose.Schema({
 
 // 3️⃣ Convert schema to a model
 // mongoose.model('User', schema) binds schema to the 'users' collection
-const user = mongoose.model('User',userSchema);
+const User = mongoose.model('User',userSchema);
+
+// 4️⃣ export it to use it 
+module.exports = User;

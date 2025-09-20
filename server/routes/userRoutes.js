@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const {createUser} = require('../controllers/userController');
+const {createUser, getUsers} = require('../controllers/userController');
 
 // POST /api/users
-router.post('/',createUser); //When a POST request hits /api/Createuser, the createUser function handles it.
+router.post('/',createUser);
+router.get('/',getUsers);
 
 module.exports = router;

@@ -27,3 +27,13 @@ Edit
 git checkout v1.0
 
 80/20 takeaway: Forms = preventDefault + API call + show result.
+
+flex flex-col gap-4 on <form> → stacks all child <div> vertically with spacing.
+
+Each <div> around label+input → flex flex-col → label above input.
+
+mb-1 on label → small margin under label.
+
+className="p-2 border rounded" on input → consistent padding and border for neat look.
+
+self-end on submit button → aligns it to the right.
