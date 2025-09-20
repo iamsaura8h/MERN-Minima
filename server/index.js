@@ -4,18 +4,25 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 
 require('dotenv').config();
-connectDB();
-
 
 // Middleware & App Setup
 const app = express();
 app.use(cors());
 app.use(express.json()); // Parse JSON body
 
-
 // Routes
 app.use('/api/users', userRoutes);
 
-// start server
+// Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
+const startServer = async () => {
+  try {
+    await connectDB(); // wait for DB connection
+    app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`)); // start server
+  } catch (err) {
+    console.error("Failed to start server:", err);
+    process.exit(1); // exit process if DB fails
+  }
+};
+
+startServer();

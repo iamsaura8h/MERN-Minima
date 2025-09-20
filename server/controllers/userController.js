@@ -18,7 +18,7 @@ const createUser = async (req, res) => {
 
     // tell the FE about it
     res.status(201).json({
-      message: "User created successfully",
+      message: "User created successfully bro!",
       user: newUser,
     });
   } catch (error) {
